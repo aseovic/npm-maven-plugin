@@ -90,18 +90,18 @@ about in `package.json` and you are done:
                                         
 The above will:
 
-1. Delete `dist` and `coverage` directories and prune `node_modules`
+* Delete `dist` and `coverage` directories and prune `node_modules`
 directory when you execute 
 ```bash
 mvn clean
 ``` 
-1. Update dependencies, run `grunt` (which in turn can run `jshint`, `browserify` 
+* Update dependencies, run `grunt` (which in turn can run `jshint`, `browserify` 
 and any other supported tool), package module into a tarball and run unit and 
 integration tests using `mocha` and `karma` respectively when you execute 
 ```bash
 mvn install
 ``` 
-1. Do all of the above and publish module to http://npmjs.com if you run 
+* Do all of the above and publish module to http://npmjs.com if you run 
 ```bash
 mvn clean deploy
 ```

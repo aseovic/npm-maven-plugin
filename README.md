@@ -1,3 +1,5 @@
+Build Status: [![Build Status](https://travis-ci.org/aseovic/npm-maven-plugin.png?branch=master)](https://travis-ci.org/aseovic/npm-maven-plugin)
+
 # Introduction
 
 This plugin allows you to integrate `npm` (and indirectly the rest of the Node.js
@@ -90,21 +92,15 @@ about in `package.json` and you are done:
                                         
 The above will:
 
-* Delete `dist` and `coverage` directories and prune `node_modules`
+1. Delete `dist` and `coverage` directories and prune `node_modules`
 directory when you execute 
-```bash
-mvn clean
-``` 
-* Update dependencies, run `grunt` (which in turn can run `jshint`, `browserify` 
+`mvn clean` 
+1. Update dependencies, run `grunt` (which in turn can run `jshint`, `browserify` 
 and any other supported tool), package module into a tarball and run unit and 
 integration tests using `mocha` and `karma` respectively when you execute 
-```bash
-mvn install
-``` 
-* Do all of the above and publish module to http://npmjs.com if you run 
-```bash
-mvn clean deploy
-```
+`mvn install`
+1. Do all of the above and publish module to http://npmjs.com if you run 
+`mvn clean deploy`
 
 A really nice thing about the integration is that you can rely on the Maven 
 lifecycle to run multiple scripts in the correct order. For example
@@ -139,4 +135,11 @@ npm install
 npm run my-script
 ```
 
-Enjoy!
+## To build this project:
+`mvn clean install`
+
+## Issues, Contributing
+Please post any issues on the Github's Issue tracker. Pull requests are welcome!
+
+### License
+Apache 2.0

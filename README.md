@@ -67,13 +67,14 @@ using lifecycle phase as the script name.
 This means that all you need to do is define the scripts for the phases you care 
 about in `package.json` and you are done:
 
-```json
+```JSON
 {
   "name": "my-node-project",
   "version": "1.0.0",
   "description": "My Node.js project with Maven integration",
   "main": "index.js",
-  "scripts": {
+  "scripts": 
+    {
     "clean": "rimraf dist coverage && npm prune",
     "initialize": "npm install",
     "compile": "grunt",
@@ -81,7 +82,7 @@ about in `package.json` and you are done:
     "integration-test": "karma start karma.conf.js",
     "package": "npm pack",
     "deploy": "npm publish"
-  }
+    }
 }  
 ```
                                         
@@ -94,7 +95,7 @@ do all of the above and publish module to http://npmjs.com if you run `mvn clean
 
 You can also run individual plugin goals directly:
 
-```
+```bash
 mvn npm:exec -Dnpm.command=list
 mvn npm:install
 mvn npm:run -Dnpm.script=my-script
@@ -102,7 +103,7 @@ mvn npm:run -Dnpm.script=my-script
 
 However, there isn't much point in doing so, as you can just as easily (or even easier) do:
 
-```
+```bash
 npm list
 npm install
 npm run my-script

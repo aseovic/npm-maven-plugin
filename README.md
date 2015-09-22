@@ -1,16 +1,18 @@
 # Introduction
 
 This plugin allows you to integrate `npm` (and indirectly the rest of the Node.js
-toolchain) into a larger Maven build. It accomplishes this by keeping things 
-simple and making the following assumptions:
+toolchain) into a larger Maven build containing a mix of Java and Node projects. 
+It accomplishes this by keeping things simple and making the following assumptions:
 
-1. Node.js/JavaScript developers should use standard Node.js tools, such as 
+1. Node projects should use the standard Node project structure, not Maven project
+   structure. Maven should get out of the way.
+1. JavaScript developers should use the standard Node/JavaScript tools, such as 
    [npm](https://www.npmjs.com), [Grunt](http://gruntjs.com), [Bower](http://bower.io),
    [Mocha](http://mochajs.org) and [Karma](http://karma-runner.github.io/0.13/index.html)
    for dependency management, build orchestration, unit and integration testing, packaging
    and publishing. Maven should get out of the way.      
-1. There is already `package.json` that can be used to test, package and publish 
-   Node.js module using `npm`, so all Maven needs to do is delegate to `npm`... 
+1. There is already `package.json` that can be used to test, bundle and publish 
+   Node package using `npm`, so all Maven needs to do is delegate to `npm`... 
    and get out of the way.
 
 This plugin defines `npm` packaging type for Maven project and delegates all phases
@@ -23,12 +25,12 @@ You should have `node` and `npm` executables in the path.
 
 All other tools should be listed in `devDependencies` section of `package.json` 
 so they can be installed into the local `node_modules` (and `node_modules/.bin`) 
-by simply doing `npm install`.
+by simply doing `npm install` (possibly via Maven, as the example below demonstrates).
 
 # Usage
 
 In order to leverage `npm-maven-plugin`, you need to create `pom.xml` in the root
-directory of the project (the same place where the existing `package.json` file is).
+directory of the project (right next to the existing `package.json` file).
  
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

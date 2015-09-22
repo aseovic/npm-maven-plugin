@@ -6,12 +6,14 @@
 
   <groupId>com.seovic.maven.plugins</groupId>
   <artifactId>npm-maven-plugin</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <packaging>maven-plugin</packaging>
 
   <name>npm Maven Plugin</name>
   <description>
-    Various extensions and utilities for Oracle Coherence in-memory data grid
+    A simple Maven plugin that defines 'npm' packaging type and delegates all
+    phases of a default lifecycle to npm. As long as there is a script for the
+    lifecycle phase in package.json, it will be executed.
   </description>
   <url>http://aseovic.github.com/npm-maven-plugin/</url>
 

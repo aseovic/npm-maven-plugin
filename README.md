@@ -67,21 +67,21 @@ using lifecycle phase as the script name.
 This means that all you need to do is define the scripts for the phases you care 
 about in `package.json` and you are done:
 
-```JSON
+```js
 {
-  "name": "my-node-project",
-  "version": "1.0.0",
+  "name":        "my-node-project",
+  "version":     "1.0.0",
   "description": "My Node.js project with Maven integration",
-  "main": "index.js",
+  "main":        "index.js",
   "scripts": 
     {
-    "clean": "rimraf dist coverage && npm prune",
-    "initialize": "npm install",
-    "compile": "grunt",
-    "test": "mocha --recursive -R spec",
+    "clean":            "rimraf dist coverage && npm prune",
+    "initialize":       "npm install",
+    "compile":          "grunt",
+    "test":             "mocha --recursive -R spec",
     "integration-test": "karma start karma.conf.js",
-    "package": "npm pack",
-    "deploy": "npm publish"
+    "package":          "npm pack",
+    "deploy":           "npm publish"
     }
 }  
 ```

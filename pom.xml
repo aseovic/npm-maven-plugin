@@ -6,7 +6,7 @@
 
   <groupId>com.seovic.maven.plugins</groupId>
   <artifactId>npm-maven-plugin</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>npm Maven Plugin</name>
@@ -127,7 +127,7 @@
     <url>https://github.com/aseovic/npm-maven-plugin</url>
     <connection>scm:git:git@github.com:aseovic/npm-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:aseovic/npm-maven-plugin.git</developerConnection>
-    <tag>v1.0.0</tag>
+    <tag>v1.0.2</tag>
   </scm>
 
   <issueManagement>

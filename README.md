@@ -1,4 +1,4 @@
-# npm-maven-plugin
+# Introduction
 
 This plugin allows you to integrate `npm` (and indirectly the rest of the Node.js
 toolchain) into a larger Maven build. It accomplishes this by keeping things 
@@ -17,7 +17,15 @@ This plugin defines `npm` packaging type for Maven project and delegates all pha
 of the lifecycle to `npm`. As long as there is a script for the Maven lifecycle
 phase in `package.json`, it will be executed.
 
-## Usage
+# Prerequisites
+
+You should have `node` and `npm` executables in the path. 
+
+All other tools should be listed in `devDependencies` section of `package.json` 
+so they can be installed into the local `node_modules` (and `node_modules/.bin`) 
+by simply doing `npm install`.
+
+# Usage
 
 In order to leverage `npm-maven-plugin`, you need to create `pom.xml` in the root
 directory of the project (the same place where the existing `package.json` file is).

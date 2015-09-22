@@ -1,3 +1,4 @@
 .idea
 target
 npm-maven-plugin.iml
+*.versionsBackup

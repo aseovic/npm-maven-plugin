@@ -6,7 +6,7 @@
 
   <groupId>com.seovic.maven.plugins</groupId>
   <artifactId>npm-maven-plugin</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>maven-plugin</packaging>
 
   <name>npm Maven Plugin</name>
@@ -122,14 +122,14 @@
   </licenses>
 
   <scm>
-    <url>https://github.com/aseovic/coherence-tools</url>
-    <connection>scm:git:git@github.com:aseovic/coherence-tools.git</connection>
-    <developerConnection>scm:git:git@github.com:aseovic/coherence-tools.git</developerConnection>
-    <tag>v0.6</tag>
+    <url>https://github.com/aseovic/npm-maven-plugin</url>
+    <connection>scm:git:git@github.com:aseovic/npm-maven-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:aseovic/npm-maven-plugin.git</developerConnection>
+    <tag>v1.0.0</tag>
   </scm>
 
   <issueManagement>
-    <url>https://github.com/aseovic/coherence-tools/issues</url>
+    <url>https://github.com/aseovic/npm-maven-plugin/issues</url>
   </issueManagement>
 
   <distributionManagement>

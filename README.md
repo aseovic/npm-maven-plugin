@@ -5,15 +5,15 @@ toolchain) into a larger Maven build containing a mix of Java and Node projects.
 It accomplishes this by keeping things simple and making the following assumptions:
 
 1. Node projects should use the standard Node project structure, not Maven project
-   structure. Maven should get out of the way.
+   structure. *Maven should get out of the way.*
 1. JavaScript developers should use the standard Node/JavaScript tools, such as 
    [npm](https://www.npmjs.com), [Grunt](http://gruntjs.com), [Bower](http://bower.io),
    [Mocha](http://mochajs.org) and [Karma](http://karma-runner.github.io/0.13/index.html)
    for dependency management, build orchestration, unit and integration testing, packaging
-   and publishing. Maven should get out of the way.      
+   and publishing. *Maven should get out of the way.*      
 1. There is already `package.json` that can be used to test, bundle and publish 
    Node package using `npm`, so all Maven needs to do is delegate to `npm`... 
-   and get out of the way.
+   *and get out of the way.*
 
 This plugin defines `npm` packaging type for Maven project and delegates all phases
 of the lifecycle to `npm`. As long as there is a script for the Maven lifecycle

@@ -69,7 +69,7 @@ using lifecycle phase as the script name.
 This means that all you need to do is define the scripts for the phases you care 
 about in `package.json` and you are done:
 
-```js
+```json
 {
   "name":        "my-node-project",
   "version":     "1.0.0",

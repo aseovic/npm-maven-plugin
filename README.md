@@ -6,7 +6,7 @@ simple and making the following assumptions:
 
 1. Node.js/JavaScript developers should use standard Node.js tools, such as 
    [npm](https://www.npmjs.com), [Grunt](http://gruntjs.com), [Bower](http://bower.io),
-   [Mocha](http://mochajs.org), [Karma](http://karma-runner.github.io/0.13/index.html)
+   [Mocha](http://mochajs.org) and [Karma](http://karma-runner.github.io/0.13/index.html)
    for dependency management, build orchestration, unit and integration testing, packaging
    and publishing. Maven should get out of the way.      
 1. There is already `package.json` that can be used to test, package and publish 
@@ -14,7 +14,7 @@ simple and making the following assumptions:
    and get out of the way.
 
 This plugin defines `npm` packaging type for Maven project and delegates all phases
-of a default lifecycle to `npm`. As long as there is a script for the Maven lifecycle
+of the lifecycle to `npm`. As long as there is a script for the Maven lifecycle
 phase in `package.json`, it will be executed.
 
 ## Usage
@@ -54,7 +54,7 @@ of the [default lifecycle](http://maven.apache.org/ref/3.3.3/maven-core/lifecycl
 [clean lifecycle](http://maven.apache.org/ref/3.3.3/maven-core/lifecycles.html#clean_Lifecycle) and
 [site lifecycle](http://maven.apache.org/ref/3.3.3/maven-core/lifecycles.html#site_Lifecycle)
 are bound to `npm:run` goal, which in turn executes `npm run <script>` command,
-using lifecycle phase as a script name.
+using lifecycle phase as the script name.
 
 This means that all you need to do is define the scripts for the phases you care 
 about in `package.json` and you are done:
@@ -73,8 +73,7 @@ about in `package.json` and you are done:
     "integration-test": "karma start karma.conf.js",
     "package": "npm pack",
     "deploy": "npm publish"
-  },
-  ...
+  }
 }  
 ```
                                         

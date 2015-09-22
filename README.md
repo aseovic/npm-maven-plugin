@@ -81,19 +81,47 @@ about in `package.json` and you are done:
     "initialize":       "npm install",
     "compile":          "grunt",
     "test":             "mocha --recursive -R spec",
-    "integration-test": "karma start karma.conf.js",
     "package":          "npm pack",
+    "integration-test": "karma start karma.conf.js",
     "deploy":           "npm publish"
     }
 }  
 ```
                                         
-The above will delete `dist` and `coverage` directories and prune `node_modules`
-directory when you execute `mvn clean`. It will update dependencies, run `grunt` 
-(which in turn can run `jshint`, `browserify` and any other supported tool), 
-package module into a tarball and run unit and integration tests using 
-`mocha` and `karma` respectively when you execute `mvn install`. Finally, it will 
-do all of the above and publish module to http://npmjs.com if you run `mvn clean deploy`.
+The above will:
+
+1. Delete `dist` and `coverage` directories and prune `node_modules`
+directory when you execute 
+```bash
+mvn clean
+``` 
+1. Update dependencies, run `grunt` (which in turn can run `jshint`, `browserify` 
+and any other supported tool), package module into a tarball and run unit and 
+integration tests using `mocha` and `karma` respectively when you execute 
+```bash
+mvn install
+``` 
+1. Do all of the above and publish module to http://npmjs.com if you run 
+```bash
+mvn clean deploy
+```
+
+A really nice thing about the integration is that you can rely on the Maven 
+lifecycle to run multiple scripts in the correct order. For example
+
+```bash
+mvn test
+```
+
+will run `initialize`, `compile` and `test` scripts automatically and in that order, while
+
+```bash
+mvn clean test
+```
+
+will also run the `clean` script beforehand.
+
+## The not so useful feature
 
 You can also run individual plugin goals directly:
 

@@ -8,5 +8,4 @@ jdk:
   - openjdk7
 
 os:
-  - osx
   - linux

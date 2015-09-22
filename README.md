@@ -1,4 +1,4 @@
-Build Status: [![Build Status](https://travis-ci.org/aseovic/npm-maven-plugin.png?branch=master)](https://travis-ci.org/aseovic/npm-maven-plugin)
+[![Build Status](https://travis-ci.org/aseovic/npm-maven-plugin.png?branch=master)](https://travis-ci.org/aseovic/npm-maven-plugin)
 
 # Introduction
 
@@ -135,11 +135,8 @@ npm install
 npm run my-script
 ```
 
-## To build this project:
-`mvn clean install`
-
 ## Issues, Contributing
 Please post any issues on the Github's Issue tracker. Pull requests are welcome!
 
-### License
+## License
 Apache 2.0

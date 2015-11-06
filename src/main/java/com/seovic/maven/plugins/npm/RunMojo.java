@@ -1,16 +1,12 @@
 package com.seovic.maven.plugins.npm;
 
-import java.io.IOException;
 
 import org.apache.commons.exec.CommandLine;
-import org.apache.commons.exec.DefaultExecutor;
-import org.apache.commons.exec.ExecuteException;
-import org.apache.commons.exec.PumpStreamHandler;
 
 import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugin.descriptor.MojoDescriptor;
+
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
@@ -34,6 +30,12 @@ public class RunMojo
      */
     @Parameter(property = "npm.script")
     private String script;
+
+    /**
+     * Whether you should skip while running in the test phase (default is false)
+     */
+    @Parameter(property = "skipTests", required = false, defaultValue = "false")
+    protected boolean skipTests;
 
     // ---- constructors ----------------------------------------------------
 
@@ -77,12 +79,19 @@ public class RunMojo
             }
         else if (pkg.hasScript(script))
             {
-            CommandLine cmdLine = new CommandLine("npm");
-            addCommand(cmdLine);
-            cmdLine.addArgument(script);
-            addArguments(cmdLine);
+            if (!fExplicit && script.endsWith("test") && skipTests)
+                {
+                getLog().info("Tests are skipped.");
+                }
+            else
+                {
+                CommandLine cmdLine = new CommandLine("npm");
+                addCommand(cmdLine);
+                cmdLine.addArgument(script);
+                addArguments(cmdLine);
 
-            execute(cmdLine);
+                execute(cmdLine);
+                }
             }
         else
             {

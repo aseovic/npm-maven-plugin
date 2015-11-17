@@ -85,7 +85,7 @@ public class RunMojo
                 }
             else
                 {
-                CommandLine cmdLine = new CommandLine(getNpmCommand());
+                CommandLine cmdLine = getNpmCommand();
                 addCommand(cmdLine);
                 cmdLine.addArgument(script);
                 addArguments(cmdLine);

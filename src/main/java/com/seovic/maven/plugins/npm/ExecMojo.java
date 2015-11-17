@@ -81,7 +81,7 @@ public class ExecMojo
             throw new MojoExecutionException("The npm command to execute must be set");
             }
 
-        CommandLine cmdLine = new CommandLine(getNpmCommand());
+        CommandLine cmdLine = getNpmCommand();
         addCommand(cmdLine);
         addArguments(cmdLine);
 
@@ -139,14 +139,24 @@ public class ExecMojo
             }
         }
 
-    protected String getNpmCommand()
+    protected CommandLine getNpmCommand()
         {
-        String sNpmCommand = npmHome == null
-                             ? "npm"
-                             : new File(npmHome, "npm").getAbsolutePath();
-        return isWindows()
-               ? "cmd /c \"" + sNpmCommand + ".cmd\""
-               : sNpmCommand;
+        String sNpm = npmHome == null
+                      ? "npm"
+                      : new File(npmHome, "npm").getAbsolutePath();
+
+        if (isWindows())
+            {
+            sNpm = sNpm + ".cmd";
+            CommandLine cmd = new CommandLine("cmd");
+            cmd.addArgument("/c");
+            cmd.addArgument(sNpm);
+            return cmd;
+            }
+        else
+            {
+            return new CommandLine(sNpm);
+            }
         }
 
     protected static boolean isWindows()

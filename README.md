@@ -23,7 +23,8 @@ phase in `package.json`, it will be executed.
 
 # Prerequisites
 
-You should have `node` and `npm` executables in the path. 
+You should have `node` and `npm` executables in the path, or specify their location
+using {{npm.home}} Maven property. 
 
 All other tools should be listed in `devDependencies` section of `package.json` 
 so they can be installed into the local `node_modules` (and `node_modules/.bin`) 
@@ -51,7 +52,7 @@ directory of the project (right next to the existing `package.json` file).
       <plugin>
         <groupId>com.seovic.maven.plugins</groupId>
         <artifactId>npm-maven-plugin</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.4</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

@@ -44,6 +44,13 @@ public class ExecMojo
     @Parameter(property = "npm.workingDir", defaultValue = "${basedir}")
     private File workingDir;
 
+    /**
+     * The directory that contains npm executable. Optional. If not specified,
+     * we will assume that npm is in the system path.
+     */
+    @Parameter(property = "npm.home")
+    private File npmHome;
+
     // ---- constructors ----------------------------------------------------
 
     /**
@@ -74,7 +81,7 @@ public class ExecMojo
             throw new MojoExecutionException("The npm command to execute must be set");
             }
 
-        CommandLine cmdLine = new CommandLine("npm");
+        CommandLine cmdLine = new CommandLine(getNpmCommand());
         addCommand(cmdLine);
         addArguments(cmdLine);
 
@@ -130,5 +137,20 @@ public class ExecMojo
             {
             throw new MojoExecutionException("Unable to parse " + file.getAbsolutePath(), e);
             }
+        }
+
+    protected String getNpmCommand()
+        {
+        String sNpmCommand = npmHome == null
+                             ? "npm"
+                             : new File(npmHome, "npm").getAbsolutePath();
+        return isWindows()
+               ? "cmd /c \"" + sNpmCommand + ".cmd\""
+               : sNpmCommand;
+        }
+
+    protected static boolean isWindows()
+        {
+        return System.getProperty("os.name").toLowerCase().contains("win");
         }
     }
